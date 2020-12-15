@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+
+
+<head>
+    <base target="_self">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <div id="here">
+        <p> Fetches and updates the files like image or txt in indexDB</p>
+        <button id="btn">Fetch image</button>
+        <button id="btn2">Fetch url </button>
+        <br>
+        <br>
+        <p>For Hard Disk Files</p>
+        <button id="btn3">Create/Save File </button>
+        <button id="btn4">Write File </button>
+        <button id="btn5">Open File </button>
+        <br>
+        <br>
+        <!-- <p>For Index DB</p>
+        <button id="btn5">Open File </button>
+        <button id="btn6">Open and Read content</button>
+        <button id="btn7">Save</button>
+        <button id="btn8">writeFile</button> -->
+        <textarea style="width:200px; height: 60px;" id="area" placeholder="Write here"></textarea>
+        <br>
+        <button onclick="localStorage.removeItem('area');area.value=''">Clear</button>
+
+
+        <script src="Scripts/img.js"></script>
+        <script src="Scripts/Fetch.js"></script>
+        <script src="Scripts/createfile.js"></script>
+        <!-- <script src="Scripts/indexdbUplodfile.js "></script> -->
+        <script>
+            document.getElementById("btn").addEventListener("click", imagefetching.imagefunc);
+            document.getElementById("btn2").addEventListener("click", fetchingData.fetching);
+
+            document.getElementById("btn3").addEventListener("click", CreateFile); //Update
+            document.getElementById("btn4").addEventListener("click", writeFile); //delete
+
+            // document.getElementById("btn5").addEventListener("click", IndexDb.Open);
+            // document.getElementById("btn6").addEventListener("click", IndexDb.CreateFile); //Update
+            // document.getElementById("btn7").addEventListener("click", IndexDb.writeFile); //delete
+        </script>
+    </div>
+    <div id="editor" class="editor" data-simplebar data-simplebar-auto-hide="false">
+        <div id="content" class="content" contenteditable="true">
+            <p>Start writing...✏️</p>
+        </div>
+    </div>
+
+
+
+
+
+</body>
