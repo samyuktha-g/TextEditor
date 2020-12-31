@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding-left: 20px;
+    padding-top: 50px;
+}
+
+form {
+    margin: 10px 0;
+    /* border-style: solid; */
+}
+
+button {
+    border: none;
+    outline: none;
+    width: 30px;
+    height: 30px;
+    background-color: whitesmoke;
+    cursor: pointer;
+}
+
+.button_cls {
+    /* border-style: solid; */
+}
+
+h1 {
+    padding: 10px;
+}
