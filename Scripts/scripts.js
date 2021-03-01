@@ -1,12 +1,4 @@
-// function enableEditMode() {
-//     RichTextField.document.designMode = 'On';
-// }
 
-
-
-// function exeCmdd(command) {
-//     RichTextField.document.execCommand(command, true, 'blockquote');
-// }
 function enableEditMode() {
     class Model {
         constructor() {
@@ -32,11 +24,9 @@ function enableEditMode() {
             }
             /**************************Drag and Drop starts here**************************************** */
             var targetDiv = document.getElementById('DND');
-            // Set the iframe to a blank page
-            // document.getElementById("RichTextField").src = "about:blank";
+            
             var iframe = document.getElementById("RichTextField");
-            // // Append it to the target
-            // document.getElementById("RichTextField").appendChild(iframe);
+            
 
             // Drag over is when an object is hovering over the div
             // e.preventDefault keeps the page from changing
@@ -179,11 +169,7 @@ function enableEditMode() {
                             Open_File();
                             async function Open_File() {
 
-                                // document.getElementById("upload").addEventListener("click", function() {
-                                //     var file = document.getElementById("browsedFile").files[0];
-                                //     // loadFile(file, iframe);
-                                // }, false);
-
+                              
                                 let fileHandle;
                                 [fileHandle] = await window.showOpenFilePicker();
                                 console.log("fileHandler:  ", fileHandle); // <-- "fileHandle" Returns the file name
@@ -218,7 +204,7 @@ function enableEditMode() {
                             }
 
 
-                            /****************************************************************** */
+                            /*************************Upload image to indexDB***************************************** */
                             //   function upload_img(files) {
                             console.log("Entered the image function");
                             var request = new XMLHttpRequest();
@@ -302,28 +288,7 @@ function enableEditMode() {
                             let button = document.getElementsByTagName('button')[8];
                             button.append(select_btn);
 
-                            //--------------------------------------------------------------------
-                            // var option_1 = document.createElement('option');
-                            // option_1.value = "Calligrapher";
-                            // option_1.textContent = "Calligrapher"
-                            // select_btn.classList.add('FntName')
-                            // select_btn.append(option_1)
-                            // console.log("select:", select_btn);
-                            // select_btn.addEventListener("click", function(e) {
-                            //     console.log("option_value: ", option_1.value);
-                            //     execCommandWithArg("fontName", option_1.value);
-                            // });
-                            // //  let button = document.getElementsByTagName('button')[8];
-                            // button.append(select_btn);
-                            //-------------------------------------------------------------------------------------------
-                            // console.log("select button: ", select_btn);
-                            // var html =
-                            //     '<select onchange="execCommandWithArg("fontName","this.value")"> <option value="Arial">Arial </option> <option value="Georgia">Georgia </option></select>';
-                            // let chain = document.getElementById('editor');
-                            // // select_btn.textContent = "Styling";
-                            // chain.innerHTML = html;
-                            // // chain.appendChild(html);
-                            // console.log("button", chain);
+                            
 
                         }
 
@@ -343,7 +308,6 @@ function enableEditMode() {
                         }
                     } else {
 
-                        // console.log("*******************icons conatins the command:");
 
                         if (i_values.indexOf(e_var) >= 0) {
                             exeCmd(cmd[tf]);
@@ -359,17 +323,7 @@ function enableEditMode() {
 
                 });
             }
-            // var select_btn = this.createElement('select');
-            // let chain = document.getElementById('toolbar');
-            // select_btn.textContent = "Styling";
-            // chain.appendChild(select_btn);
-            // console.log("button", select_btn);
-            /************************Check if the button is cliced, then take action********************* */
-            // var buttons = document.getElementsByTagName("button");
-
-            // var t = 0;
-
-
+          
 
         }
 
@@ -401,32 +355,3 @@ function enableEditMode() {
         //const app = new Controller(new Model(), new View())
 }
 
-///////////////////////previousscript
-
-// let button = document.createElement('button')
-
-//"&#xf2b9;";
-// console.log(button);
-// //let I = document.createElement('i');
-// // I.innerHTML = "&#xf2b9;";
-// // button.appendChild(I);
-
-// //button.appendChild(chain);
-// console.log(button)
-
-// let button2 = document.createElement('button')
-//     //  let chain = document.getElementById('icons');
-// button2.innerHTML = '<i class = "fa fa-italic"></i>'; //"&#xf2b9;";
-
-// /// let I = document.createElement('i');
-// // I.innerHTML = "&#xf2b9;";
-// // button.appendChild(I);
-// chain.appendChild(button2);
-// //button.appendChild(chain);
-// console.log(button2)
-
-// //I.innerHTML = "&#xf2b9;";
-
-// // chain.appendChild(button);
-// console.log(chain, button););
-// console.log(chain, button);
