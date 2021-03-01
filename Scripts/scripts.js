@@ -93,7 +93,8 @@ function enableEditMode() {
                 '<i class="fa fa-align-left"></i>', '<i class="fa fa-align-right"></i>',
                 '<i class="fa fa-folder-open"></i>', '<i class="fa fa-file-image-o"></i>',
                 '<i class="fa fa-paragraph"></i>', '<i class="fa fa-link"></i>', '<i class="fa fa-code"></i>',
-                '<i class="fa fa-list-ol"></i>', '<i class="fa fa-list-ul"></i>'
+                '<i class="fa fa-list-ol"></i>', '<i class="fa fa-list-ul"></i>', '<i class="fa fa-undo"></i>',
+                '<i class="fa fa-repeat"></i>', '<i class="fa fa-clone"></i>', '<i class="fa fa-chain-broken"></i>'
             ];
 
             // console.log(icons[1]);
@@ -118,12 +119,13 @@ function enableEditMode() {
                 btns[i].addEventListener("click", function(e) {
                     var cmd = ['bold', 'italic', 'underline', 'justifyCenter', 'justifyLeft', 'justifyRight',
                         'fileopen', 'insertImage', 'insertParagraph', 'createLink', 'insertcode', 'insertOrderedList',
-                        'insertUnorderedList'
+                        'insertUnorderedList', 'undo', 'redo', 'copy', 'unlink'
                     ];
                     var i_values = ["fa fa-bold", "fa fa-italic", "fa fa-underline", "fa fa-align-justify",
                         "fa fa-align-left", "fa fa-align-right", "fa fa-folder-open",
                         "fa fa-file-image-o", "fa fa-paragraph", "fa fa-link", "fa fa-code",
-                        "fa fa-list-ol", "fa fa-list-ul"
+                        "fa fa-list-ol", "fa fa-list-ul", "fa fa-undo", "fa fa-repeat",
+                        "fa fa-clone", "fa fa-chain-broken"
                     ];
                     console.log("cmd: ", cmd[i], i, e.target, e.target.className, i_values);
                     let e_var = e.target.className;
@@ -186,6 +188,7 @@ function enableEditMode() {
                                 [fileHandle] = await window.showOpenFilePicker();
                                 console.log("fileHandler:  ", fileHandle); // <-- "fileHandle" Returns the file name
                                 // var destination = document.getElementsByTagName('iframe');
+                                
                                 //********************************Reads/Returns the contents of the file**************************************************** */
                                 const file = await fileHandle.getFile();
                                 console.log("file: --> ", file, file.name);
@@ -216,7 +219,7 @@ function enableEditMode() {
                             }
 
 
-                            /****************************************************************** */
+                            /*************************Insert image to indexDB***************************************** */
                             //   function upload_img(files) {
                             console.log("Entered the image function");
                             var request = new XMLHttpRequest();
@@ -284,7 +287,7 @@ function enableEditMode() {
 
                         } else if (e_var == "fa fa-paragraph" || e_var == 9) {
 
-
+                   /*********************Cursive Font style*****************************************/
                             var select_btn = document.createElement('select');
                             var option = document.createElement('option');
 
@@ -300,29 +303,7 @@ function enableEditMode() {
                             let button = document.getElementsByTagName('button')[8];
                             button.append(select_btn);
 
-                            //--------------------------------------------------------------------
-                            // var option_1 = document.createElement('option');
-                            // option_1.value = "Calligrapher";
-                            // option_1.textContent = "Calligrapher"
-                            // select_btn.classList.add('FntName')
-                            // select_btn.append(option_1)
-                            // console.log("select:", select_btn);
-                            // select_btn.addEventListener("click", function(e) {
-                            //     console.log("option_value: ", option_1.value);
-                            //     execCommandWithArg("fontName", option_1.value);
-                            // });
-                            // //  let button = document.getElementsByTagName('button')[8];
-                            // button.append(select_btn);
-                            //-------------------------------------------------------------------------------------------
-                            // console.log("select button: ", select_btn);
-                            // var html =
-                            //     '<select onchange="execCommandWithArg("fontName","this.value")"> <option value="Arial">Arial </option> <option value="Georgia">Georgia </option></select>';
-                            // let chain = document.getElementById('editor');
-                            // // select_btn.textContent = "Styling";
-                            // chain.innerHTML = html;
-                            // // chain.appendChild(html);
-                            // console.log("button", chain);
-
+                            
                         }
 
                     } else if (e_var == 10 || e_var == "fa fa-link") {
@@ -351,24 +332,10 @@ function enableEditMode() {
 
 
                     }
-                    // if (e.target.className == i || e.target.className == icons[i].className) {
-                    // }
-
-
+                   
                 });
             }
-            // var select_btn = this.createElement('select');
-            // let chain = document.getElementById('toolbar');
-            // select_btn.textContent = "Styling";
-            // chain.appendChild(select_btn);
-            // console.log("button", select_btn);
-            /************************Check if the button is cliced, then take action********************* */
-            // var buttons = document.getElementsByTagName("button");
-
-            // var t = 0;
-
-
-
+          
         }
 
 
@@ -399,32 +366,3 @@ function enableEditMode() {
         //const app = new Controller(new Model(), new View())
 }
 
-///////////////////////previousscript
-
-// let button = document.createElement('button')
-
-//"&#xf2b9;";
-// console.log(button);
-// //let I = document.createElement('i');
-// // I.innerHTML = "&#xf2b9;";
-// // button.appendChild(I);
-
-// //button.appendChild(chain);
-// console.log(button)
-
-// let button2 = document.createElement('button')
-//     //  let chain = document.getElementById('icons');
-// button2.innerHTML = '<i class = "fa fa-italic"></i>'; //"&#xf2b9;";
-
-// /// let I = document.createElement('i');
-// // I.innerHTML = "&#xf2b9;";
-// // button.appendChild(I);
-// chain.appendChild(button2);
-// //button.appendChild(chain);
-// console.log(button2)
-
-// //I.innerHTML = "&#xf2b9;";
-
-// // chain.appendChild(button);
-// console.log(chain, button););
-// console.log(chain, button);
