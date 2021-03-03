@@ -24,11 +24,11 @@ function indexDB(file) {
         }
     });
 
-
+//call to Transactions which have three available modes: readonly, readwrite, and versionchange.
     let tx = makeTX('Ehh_developmentStore', 'readwrite');
     tx.oncomplete = (ev) => {
         console.log(ev);
-        //buildList()
+        
     };
 
     //adds the content to db through store.add(), where file as input given
@@ -55,30 +55,3 @@ function indexDB(file) {
 };
 
 
-// function indexdb(file, event) {
-//     const dbName = "ehh_database";
-
-//     var request = indexedDB.open(dbName, 1);
-
-//     request.onerror = function(event) {
-//         // Handle errors.
-//         console.log("error occurred: ", event.target.errorCode);
-//     };
-//     request.onupgradeneeded = function(event) {
-//         var db = event.target.result;
-
-//         // Create an objectStore to hold information about user details. We're
-//         var objectStore = db.createObjectStore("DataBase", { autoincreament: 'true' });
-
-
-//         objectStore.createIndex("name", { unique: false });
-
-//         objectStore.transaction.oncomplete = function(e) {
-//             // Store values in the newly created objectStore.
-//             var customerObjectStore = db.transaction("customers", "readwrite").objectStore("customers");
-//             customerData.forEach(function(customer) {
-//                 customerObjectStore.add(customer);
-//             });
-//         };
-//     };
-// }
