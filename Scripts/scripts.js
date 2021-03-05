@@ -84,7 +84,7 @@ function enableEditMode() {
                 '<i class="fa fa-folder-open"></i>', '<i class="fa fa-file-image-o"></i>',
                 '<i class="fa fa-paragraph"></i>', '<i class="fa fa-link"></i>', '<i class="fa fa-code"></i>',
                 '<i class="fa fa-list-ol"></i>', '<i class="fa fa-list-ul"></i>', '<i class="fa fa-undo"></i>',
-                '<i class="fa fa-repeat"></i>', '<i class="fa fa-clone"></i>', '<i class="fa fa-chain-broken"></i>'
+                '<i class="fa fa-repeat"></i>', '<i class="fa fa-clone"></i>', '<i class="fa fa-chain-broken"></i>''<i class="fa fa-floppy-o"></i>'
             ];
 
             // console.log(icons[1]);
@@ -109,13 +109,13 @@ function enableEditMode() {
                 btns[i].addEventListener("click", function(e) {
                     var cmd = ['bold', 'italic', 'underline', 'justifyCenter', 'justifyLeft', 'justifyRight',
                         'fileopen', 'insertImage', 'insertParagraph', 'createLink', 'insertcode', 'insertOrderedList',
-                        'insertUnorderedList', 'undo', 'redo', 'copy', 'unlink'
+                        'insertUnorderedList', 'undo', 'redo', 'copy', 'unlink','savez'
                     ];
                     var i_values = ["fa fa-bold", "fa fa-italic", "fa fa-underline", "fa fa-align-justify",
                         "fa fa-align-left", "fa fa-align-right", "fa fa-folder-open",
                         "fa fa-file-image-o", "fa fa-paragraph", "fa fa-link", "fa fa-code",
                         "fa fa-list-ol", "fa fa-list-ul", "fa fa-undo", "fa fa-repeat",
-                        "fa fa-clone", "fa fa-chain-broken"
+                        "fa fa-clone", "fa fa-chain-broken", "fa fa-floppy-o"
                     ];
                     console.log("cmd: ", cmd[i], i, e.target, e.target.className, i_values);
                     let e_var = e.target.className;
@@ -292,7 +292,25 @@ function enableEditMode() {
 
                         }
 
-                    } else if (e_var == 10 || e_var == "fa fa-link") {
+                    } else if (e_var == "fa fa-floppy-o" || e_var == 18) {
+                            Open_File();
+
+                            //rEAD FILE
+                            async function Open_File() {
+
+                                // document.getElementById("upload").addEventListener("click", function() {
+                                //     var file = document.getElementById("browsedFile").files[0];
+                                //     // loadFile(file, iframe);
+                                // }, false);
+
+                                let fileHandle;
+                                fileHandle = await window.showSaveFilePicker();
+                                const file = await fileHandle.getFile();
+                                const contents = await file.text();
+                                console.log("file: ", file);
+                                // return handle;
+                            }
+                        }else if (e_var == 10 || e_var == "fa fa-link") {
                         //This is for Creating Link
 
                         execCommandWithArg('createLink', prompt('Enter a URL', 'http://'));
